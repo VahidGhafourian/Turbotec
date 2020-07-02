@@ -1,0 +1,28 @@
+{
+  "probSafe": $P1,
+  "probOne":  $P2,
+  "probTwo": $P3,
+  "probThree": $P4,
+  "probFour": $P5,
+  "probFive": $P6,
+  "probSix": $P7,
+  "probSeven": $P8,
+  "probEight": $P9,
+  "probNine": $P10,
+  "probTen": $P11,
+  "probEleven": $P12,
+  "probTwelve": $P13,
+  "probThirteen": $P14,
+  "probFourteen": 0,
+
+  "sensorOne": $S1,
+  "sensorTwo": $S2,
+  "sensorThree": $S3,
+  "sensorFour": $S4,
+  "sensorFive": $S5,
+  "sensorSix": $S6,
+  "sensorSeven": $S7,
+  "temp" = $S8,
+
+  "updateInterval": $TIMEINTERVAL
+}
