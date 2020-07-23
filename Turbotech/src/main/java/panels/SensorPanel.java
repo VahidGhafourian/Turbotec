@@ -29,14 +29,11 @@ public class SensorPanel extends JPanel {
         };
 
         scrollPane = new JScrollPane(table);
-        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
+//        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 
         setLayout(new BorderLayout());
-        add(table.getTableHeader(), BorderLayout.PAGE_START);
+        add(table.getTableHeader(), BorderLayout.PAGE_END);
         add(scrollPane, BorderLayout.CENTER);
-
-        setSize(MySize.sensorPanelSize);
-        setMaximumSize(MySize.sensorPanelSize);
 
     }
 

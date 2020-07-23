@@ -9,13 +9,13 @@ import java.awt.geom.RoundRectangle2D;
 public class ColumnR extends JPanel {
     private double rects ;
     private double height = 3;
-    private int weight = 70;
-    private int X = 10;
-    private double Y = 400;
+    private int weight = 35;
+    private int X = 12;
+    private double Y = 140;
     private double r = 10;
     private int gap = 10;
     private Color fillColor ;
-    Font font = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+    Font font = new Font(Font.SANS_SERIF, Font.BOLD, 10);
 
     public ColumnR(Color color) {
         setBackground(MyColor.onlineColumnBack);
@@ -28,16 +28,16 @@ public class ColumnR extends JPanel {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
         g.setColor(fillColor);
-        Y = (100 - rects)*4;
-        height = (430 - Y);
-        Shape shape = new RoundRectangle2D.Double(X, Y, weight, height, 25, 25);
+        Y = (100 - rects)*1.3;
+        height = (150 - Y);
+        Shape shape = new RoundRectangle2D.Double(X, Y, weight, height, 20, 20);
         g2.draw(shape);
         g2.fill(shape);
         g.setColor(MyColor.onlineColumnNum);
         g.setFont(font);
         if (Double.compare(100.0, rects)==0)
-            g.drawString(" "+(int)rects+"%" , X-4, (int) (Y+(height/2) + 9));
-        else g.drawString(" "+rects+"%" , X-5, (int) (Y+(height/2) + 9));
+            g.drawString("  "+(int)rects+"%" , X-4, (int) (Y+(height/2) + 9));
+        else g.drawString("  "+rects+"%" , X-5, (int) (Y+(height/2) + 4));
     }
 
     public void setRects(double rects) {

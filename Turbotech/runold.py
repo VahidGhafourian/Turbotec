@@ -2,7 +2,6 @@ import pickle
 import numpy as np
 import sched, time
 import sys
-from server import connect
 sys.path.append('/home/anaconda3/lib/python3.7/site-packages')
 
 def load(filename):
@@ -11,11 +10,12 @@ def load(filename):
 
 
 class NextData():
-    def __init__(self):
+    def __init__(self,x_test):
+        self.x_test = x_test
         self.i = 0
     def __call__(self):
          try:
-            output = connect(self.i)
+            output = self.x_test[self.i]
             self.i = self.i+1
             return output
          except:
@@ -45,11 +45,14 @@ def predict(clf, x_in, prefix = ''):
 def run(clf): 
     x_in = next_data()
     print(next_data.i)
-    predict(clf, np.array(x_in)[1:], prefix = '')
+    predict(clf, x_in, prefix = '')
     s.enter(dtime/1000, 1, run, (clf,))
 
     
-next_data = NextData()
+data = np.load('dataset.npz')
+x = data['x']
+y = data['y']
+next_data = NextData(x)
 
 dtime = 2000
 clf = load('model1')

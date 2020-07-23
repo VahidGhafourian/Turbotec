@@ -56,14 +56,10 @@ public class MainPanel extends JFrame {
         imageHelp.setIcon(helpIcon);
 
         JPanel menu = new JPanel();
-        addGap(menu,620);
+        addGap(menu,285);
         menu.add(b1);
-        addGap(menu,80);
+        addGap(menu,50);
         menu.add(b2);
-        addGap(menu, 350);
-        menu.add(imageHelp);
-        addGap(menu, 10);
-        menu.add(imageSetting);
         menu.setBackground(MyColor.btnMenu);
 
         boxLayout = new BoxLayout(menu, BoxLayout.X_AXIS);
@@ -74,7 +70,7 @@ public class MainPanel extends JFrame {
         frame.add(cardPanel, BorderLayout.CENTER);
         frame.add(menu, BorderLayout.NORTH);
         frame.setSize(MySize.mainFrameSize);
-        frame.setLocation(200,100);
+        frame.setLocation(100,100);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
 
@@ -82,7 +78,7 @@ public class MainPanel extends JFrame {
     }
 
     private void addGap(JPanel menu, int width) {
-        menu.add(Box.createRigidArea(new Dimension(width, 120)));
+        menu.add(Box.createRigidArea(new Dimension(width, 80)));
     }
 
 

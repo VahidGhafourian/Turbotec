@@ -28,7 +28,7 @@ public class SensorTable extends JTable implements MouseMotionListener {
         setGridColor(MyColor.tableGridLine);
         setBackground(MyColor.onlineSensorRow);
         setFont(MyFont.sensorPanel);
-        setRowHeight(80);
+        setRowHeight(30);
 
     }
 

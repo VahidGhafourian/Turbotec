@@ -9,7 +9,7 @@ public class ColumnsPanel extends JPanel {
     ColumnR resultPanel;
     JPanel txtPanel;
 
-    private Dimension size = new Dimension(50,150);
+    private Dimension size = new Dimension(10,10);
     public ColumnsPanel( Color color, String title) {
         setBackground(MyColor.onlineColumnBack);
         resultPanel = new ColumnR(color);
@@ -17,15 +17,12 @@ public class ColumnsPanel extends JPanel {
         JLabel label = new JLabel(title);
         txtPanel.add(label);
         txtPanel.setSize(size);
-        txtPanel.setMinimumSize(size);
-        txtPanel.setMaximumSize(size);
         txtPanel.setBackground(MyColor.onlineColumnBack);
-        label.setFont(new Font(Font.SERIF, Font.ITALIC, 22));
+        label.setFont(new Font(Font.SERIF, Font.ITALIC, 13));
         label.setBackground(Color.RED);
         BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
         setLayout(layout);
-
-        add(gap(10, MyColor.onlineColumnBack));
+        resultPanel.setPreferredSize(new Dimension(30,150));
         add(resultPanel);
         add(txtPanel);
 

@@ -29,7 +29,7 @@ public class Receivepanel extends JPanel {
         ptitle.setBackground(MyColor.panelBack);
         JLabel title = new JLabel("Upload Files: ");
         title.setForeground(Color.WHITE);
-        title.setFont( new Font(Font.SERIF, Font.BOLD, 80) );
+        title.setFont( new Font(Font.SERIF, Font.BOLD, 30) );
         ptitle.setLayout(new BorderLayout());
         ptitle.add(title, BorderLayout.WEST);
         ptitle.setMaximumSize(MySize.receivePanelTitleSize);
@@ -83,7 +83,7 @@ public class Receivepanel extends JPanel {
         p.setLayout(new BoxLayout(p, BoxLayout.X_AXIS));
 
         JButton btnStart = new JButton("Start");
-        btnStart.setFont(new Font(Font.DIALOG, Font.BOLD, 40));
+        btnStart.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
         btnStart.setMaximumSize(MySize.receivePanelBtnSize);
 
         JPanel footer = new JPanel();

@@ -10,16 +10,24 @@ public class OnlineData {
 
     private long sleepTime = 2010;
     private DataConfig oldData = new DataConfig();
+    private static String systemPythonPath;
     public OnlineData(OnlinePanel oP) {
         try {
             Runtime rt = Runtime.getRuntime();
-            printOutput errorReported, outputMessage;
 
-            Process proc = rt.exec("/home/vahid/anaconda3/bin/python " + System.getProperty("user.dir") + "/run.py");
-            errorReported = new printOutput(proc.getErrorStream(), "ERROR");
-            outputMessage = new printOutput(proc.getInputStream(), "OUTPUT");
+            Process proc = rt.exec("which python ");
+            InputStream inputStream = proc.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
+            systemPythonPath = br.readLine();
+            System.out.println(systemPythonPath);
+            printOutput errorReported, outputMessage;
+            Process proc2 = rt.exec(systemPythonPath + " " + System.getProperty("user.dir") + "/runold.py");
+            errorReported = new printOutput(proc2.getErrorStream(), "ERROR");
+            outputMessage = new printOutput(proc2.getInputStream(), "OUTPUT");
             errorReported.start();
             outputMessage.start();
+
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -31,7 +39,6 @@ public class OnlineData {
                 final Gson gson = new GsonBuilder().create();
                 while (true) {
                     try {
-                        System.out.println("go");
                         BufferedReader reader = new BufferedReader(new FileReader(System.getProperty("user.dir") + "/DataFile"));
                         StringBuilder jsonData = new StringBuilder();
                         String str;
@@ -75,7 +82,7 @@ public class OnlineData {
                 BufferedReader br = new BufferedReader(
                         new InputStreamReader(is));
                 while ((s = br.readLine()) != null) {
-//                    System.out.println(s);
+                    System.out.println(s);
                 }
             } catch (IOException ioe) {
                 ioe.printStackTrace();

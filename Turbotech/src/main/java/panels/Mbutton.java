@@ -10,11 +10,8 @@ import res.MySize;
 
 public class Mbutton extends JButton {
 
-    private final int number ;
-
     public Mbutton(String lable, final int number){
         super("  " + lable + "  ");
-        this.number = number;
 
         setMaximumSize(MySize.btnSize);
         setMinimumSize(MySize.btnSize);
@@ -22,13 +19,7 @@ public class Mbutton extends JButton {
 
         try {
             UIManager.setLookAndFeel(new AluminiumLookAndFeel());
-        } /*catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }*/ catch (UnsupportedLookAndFeelException e) {
+        } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
 
