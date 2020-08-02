@@ -14,7 +14,7 @@ public class OnlinePanel extends JPanel {
     private PanelOnline panelOnline;
 
     private static boolean isOpen = true;
-    public OnlinePanel() {
+    public OnlinePanel(ErrorDraw alarmBox) {
         setBackground(MyColor.panelBack);
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
@@ -23,7 +23,7 @@ public class OnlinePanel extends JPanel {
         panelGif.setLayout(layout);
         panelGif.add(new GifPanel());
 
-        panelOnline = new PanelOnline();
+        panelOnline = new PanelOnline(alarmBox);
 
         sensorPanel = new SensorPanel();
         sensorPanel.setMaximumSize(MySize.sensorPanelSize);

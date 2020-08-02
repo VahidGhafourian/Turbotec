@@ -33,8 +33,10 @@ public class MainPanel extends JFrame {
 
         receivepanel = new Receivepanel();
 
+        ErrorDraw alarmBox = new ErrorDraw();
+
         cardPanel = new JPanel();
-        onlinePanel = new OnlinePanel();
+        onlinePanel = new OnlinePanel(alarmBox);
         OnlineData onlineData = new OnlineData(onlinePanel);
 
 
@@ -55,11 +57,14 @@ public class MainPanel extends JFrame {
         imageSetting.setIcon(settingIcon);
         imageHelp.setIcon(helpIcon);
 
+        alarmBox.setBackground(MyColor.btnMenu);
         JPanel menu = new JPanel();
-        addGap(menu,285);
+        addGap(menu,265);
         menu.add(b1);
-        addGap(menu,50);
+        addGap(menu,40);
         menu.add(b2);
+        addGap(menu,10);
+        menu.add(alarmBox);
         menu.setBackground(MyColor.btnMenu);
 
         boxLayout = new BoxLayout(menu, BoxLayout.X_AXIS);

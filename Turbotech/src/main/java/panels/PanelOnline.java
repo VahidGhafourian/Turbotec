@@ -12,7 +12,9 @@ public class PanelOnline extends JPanel {
     public DataConfig data;
     private ColumnsPanel[] unsafes ;
     private ColumnsPanel safe;
-    public PanelOnline() {
+    private ErrorDraw alarmBox;
+    public PanelOnline(ErrorDraw alarmBox) {
+        this.alarmBox = alarmBox;
         BoxLayout resultLayout = new BoxLayout(this, BoxLayout.X_AXIS);
         setLayout(resultLayout);
         safe = new ColumnsPanel(Color.GREEN, "H");
@@ -26,14 +28,10 @@ public class PanelOnline extends JPanel {
 
     }
 
-
-    private JPanel gap(int size, Color color) {
-        JPanel p = new JPanel();
-        p.setBackground(color);
-        p.setMaximumSize(new Dimension(size, size));
-        p.setSize(new Dimension(size, size));
-        return p;
-    }
+    /**
+     * Use 'new' to make unsafe objects
+     * @param panels
+     */
     private void makeUnsafes (ColumnsPanel[] panels) {
         for (int i = 0; i < panels.length; i++) {
             String title ;
@@ -44,12 +42,22 @@ public class PanelOnline extends JPanel {
         }
 
     }
+
+    /**
+     * Adding unsafe columns to panel
+     * @param main
+     * @param panels
+     */
     private void addUnsafes(JPanel main , ColumnsPanel[] panels) {
         for (int i = 0; i < panels.length; i++) {
             main.add(panels[i]);
         }
     }
 
+    /**
+     * Updating all things on online panel. Like sensor's value table and result columns.
+     * @param sensorPanel
+     */
     public void update(SensorPanel sensorPanel) {
         if (data!=null) {
             safe.setR(data.getCol(0));
@@ -66,5 +74,12 @@ public class PanelOnline extends JPanel {
             }
             sensorPanel.addData(newRow);
         }
+        sendStatus();
+    }
+    private  void sendStatus(){
+        if((int) data.getCol(0)>=70)
+            alarmBox.setStatus(true);
+        else alarmBox.setStatus(false);
+
     }
 }

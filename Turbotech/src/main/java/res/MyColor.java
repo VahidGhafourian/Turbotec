@@ -15,4 +15,5 @@ public class MyColor {
     public static Color tableFocus =         new Color(206, 198, 202);
     public static Color tableGridLine =      new Color(50, 50, 102);
     public static Color tableHeader =        new Color(50, 50, 102);
+    public static Color safeMessage =        new Color(30, 123, 17, 244);
 }

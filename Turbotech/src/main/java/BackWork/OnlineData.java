@@ -21,7 +21,7 @@ public class OnlineData {
             systemPythonPath = br.readLine();
             System.out.println(systemPythonPath);
             printOutput errorReported, outputMessage;
-            Process proc2 = rt.exec(systemPythonPath + " " + System.getProperty("user.dir") + "/runold.py");
+            Process proc2 = rt.exec(/*systemPythonPath +*/ "/home/vahid/anaconda3/bin/python " + System.getProperty("user.dir") + "/run.py");
             errorReported = new printOutput(proc2.getErrorStream(), "ERROR");
             outputMessage = new printOutput(proc2.getInputStream(), "OUTPUT");
             errorReported.start();
